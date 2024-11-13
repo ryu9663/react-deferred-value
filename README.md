@@ -1,50 +1,13 @@
-# React + TypeScript + Vite
+# useDeferredValue로 concurrent rendering 확인해보기
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## blocking rendering
 
-Currently, two official plugins are available:
+![2024-11-139 23 40-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/71b84d31-70a2-4772-a235-3f252c6d9dc6)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## concurrent rendering
 
-## Expanding the ESLint configuration
+![2024-11-139 39 43-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/719c1028-d9fd-48d7-bf40-7e420fa25328)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## text와 deferredText 비교
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![2024-11-139 56 59-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/5220d334-8446-468b-beac-b457e913fe72)
