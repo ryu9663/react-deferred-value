@@ -1,4 +1,4 @@
-import { useState, useDeferredValue, useMemo } from "react";
+import { useState, useDeferredValue } from "react";
 import styled from "styled-components";
 const TestWrapper = styled.div`
   display: flex;
@@ -10,11 +10,11 @@ const TestChild = styled.div<{ color: string }>`
   height: 100px;
   background-color: ${({ color }) => color};
 `;
-const DeferredValue2 = () => {
+const BlockingRendering = () => {
   const [text, setText] = useState("");
   const deferredText = useDeferredValue(text);
 
-  const boxes = useMemo(() => {
+  const boxes = (() => {
     const x = Math.floor(Math.random() * 256);
     const y = Math.floor(Math.random() * 256);
     const z = Math.floor(Math.random() * 256);
@@ -34,7 +34,7 @@ const DeferredValue2 = () => {
         <TestChild color={backgroundColor} />
       </TestWrapper>
     );
-  }, [deferredText]);
+  })();
 
   return (
     <div>
@@ -52,7 +52,7 @@ const DeferredValue2 = () => {
   );
 };
 
-export default DeferredValue2;
+export default BlockingRendering;
 
 const Input = styled.input`
   height: 40px;

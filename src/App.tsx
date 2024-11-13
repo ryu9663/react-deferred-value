@@ -1,10 +1,12 @@
 import "./App.css";
-import DeferredValue2 from "./DeferredValue2";
+import BlockingRendering from "./BlockingRendering";
+import ConcurrentRendering from "./ConcurrentRendering";
 
 function App() {
   return (
     <>
-      <DeferredValue2 />
+      {/* <ConcurrentRendering /> */}
+      <BlockingRendering />
     </>
   );
 }
